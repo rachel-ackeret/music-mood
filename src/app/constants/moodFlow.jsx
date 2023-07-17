@@ -1,23 +1,30 @@
 import React from 'react';
 import Immutable from 'immutable';
 
+export const moodFlowPhases = Immutable.Map({
+    GENRE: "Genre",
+    ENERGY: "Energy",
+    MOOD: "Mood",
+    REVIEW: "Review",
+});
+
 const moodFlow = {
-    Genre: {
+    [moodFlowPhases.GENRE]: {
         title: "Pick a Genre",
         description: "Choose a genre to start your journey",
-        buttonText: "Next"
+        buttonText: "Next",
     },
-    Energy: {
+    [moodFlowPhases.ENERGY]: {
         title: "Pick an Energy",
         description: "Choose an energy level to start your journey",
         buttonText: "Next"
     },
-    Mood: {
+    [moodFlowPhases.MOOD]: {
         title: "Pick a Mood",
         description: "Choose a mood to start your journey",
         buttonText: "Next"
     },
-    Review: {
+    [moodFlowPhases.REVIEW]: {
         title: "Review your choices",
         description: "etc",
         buttonText: "Load Results"
@@ -28,7 +35,5 @@ const moodFlow = {
     //     buttonText: "Next"
     // }}
 };
-
-export const moodFlowPlacements = Immutable.List(Object.keys(moodFlow));
 
 export default moodFlow;

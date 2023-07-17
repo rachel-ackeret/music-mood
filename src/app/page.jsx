@@ -1,4 +1,4 @@
-import CriteriaFlowBox from "./components/CriteriaFlowBox";
+import FlowContainer from "./components/FlowContainer";
 
 export default function Home() {
     {/* Rounded in and out modals that take you through:
@@ -13,7 +13,7 @@ export default function Home() {
 		<main className="flex min-h-screen flex-col items-center justify-start p-24">
 			<h1>Music Mood</h1>
             <div className="flex min-h-screen flex-col items-center justify-center p-24">
-                <CriteriaFlowBox />
+                <FlowContainer />
             </div>
 		</main>
 	);
