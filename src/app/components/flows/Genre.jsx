@@ -29,7 +29,7 @@ export default function Genre({ handleGenreSelection }) {
 			isMulti
 			name="genres"
 			options={getGenreDropdownOptions(genres)}
-			className="basic-multi-select text-zinc-900 my-5"
+			className="basic-multi-select text-zinc-900 my-5 text-left"
 			classNamePrefix="select"
 			onChange={(e) => handleGenreSelection(e.map((genre) => genre.value))}
 		/>

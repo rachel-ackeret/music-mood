@@ -10,28 +10,31 @@ export const moodFlows = {
 
 const moodFlow = Immutable.Map({
     [moodFlows.GENRE]: {
+        type: "Genre",
         title: "Pick a Genre",
-        description: "Choose a genre to start your journey",
+        description: "Choose genres that you prefer to listen to, or leave this section blank and let us Spotify choose for you",
         buttonText: "Next",
     },
     [moodFlows.ENERGY]: {
+        type: "Energy",
         title: "Pick an Energy",
-        description: "Choose an energy level to start your journey",
+        description: "Choose an energy level to match to your tracks",
         buttonText: "Next"
     },
     [moodFlows.MOOD]: {
+        type: "Mood",
         title: "Pick a Mood",
-        description: "Choose a mood to start your journey",
+        description: "Choose a mood to match to your tracks",
         buttonText: "Next"
     },
     [moodFlows.REVIEW]: {
-        title: "Review your choices",
-        description: "etc",
+        title: null,
+        description: null,
         buttonText: "Load Results"
     },
-    // { Tempo: {
-    //     title: "Pick a Tempo",
-    //     description: "Choose a tempo to start your journey",
+    // { Artist: {
+    //     title: "Pick a artist",
+    //     description: "Choose a artist to start your journey",
     //     buttonText: "Next"
     // }}
 });

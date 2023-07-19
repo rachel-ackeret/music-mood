@@ -1,8 +1,17 @@
 import React from 'react'
+import Slider from '@mui/material/Slider';
 
-const Energy = () => {
+const Energy = ({ handleEnergySelection }) => {
   return (
-    <div>Energy</div>
+    <Slider
+      aria-label="Energy Today"
+      defaultValue={50}
+      color="secondary"
+      onChange={(e) => handleEnergySelection(e.target.value)}
+			max={1}
+			min={0}
+      step={.1}
+    />
   )
 }
 

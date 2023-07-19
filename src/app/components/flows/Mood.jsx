@@ -1,8 +1,19 @@
 import React from 'react'
+import Slider from '@mui/material/Slider';
 
-const Mood = () => {
+const Mood = ({ handleMoodSelection }) => {
   return (
-    <div>Mood</div>
+    <>
+      <Slider
+        aria-label="Mood Today"
+        defaultValue={50}
+        color="secondary"
+        onChange={(e) => handleMoodSelection(e.target.value)}
+        max={1}
+        min={0}
+        step={.1}
+      />
+    </>
   )
 }
 

@@ -1,6 +1,22 @@
 const baseUrl = "https://api.spotify.com/v1"
 import { getSpotifyAccessToken } from './access';
 
+const getTrackRecommendations = async (savedUserChoices) => {
+
+    const seedGenres = savedUserChoices.genre && `seed_genres=${savedUserChoices.genre}?`;
+    const targetDanceabiliity = savedUserChoices.mood && `seed_genres=${savedUserChoices.genre}?`;
+    const targetEnergy = savedUserChoices.energy && `seed_genres=${savedUserChoices.genre}?`;
+
+    const url = `${baseUrl}/recommendations/available-genre-seeds&`;
+
+    return makeSpotifyApiRequest(url).then(data => {
+        return data;
+    }).catch(error => {
+        console.error('Error making API request:', error);
+        return null;
+    });
+};
+
 const getGenreRecommendations = async () => {
     const url = `${baseUrl}/recommendations/available-genre-seeds`;
 
@@ -35,5 +51,6 @@ const makeSpotifyApiRequest = async (url, method = 'GET', body = null) => {
 }
 
 export {
-    getGenreRecommendations
+    getGenreRecommendations,
+    getTrackRecommendations
 }
