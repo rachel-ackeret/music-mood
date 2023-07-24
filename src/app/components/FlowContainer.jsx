@@ -57,7 +57,7 @@ const FlowContainer = ({ children }) => {
 	}
 
 	return (
-		<div className="bg-zinc-900 min-h-[150px] rounded-lg block drop-shadow-lg p-9 pb-2 flex flex-col w-[650px]">
+		<div className="bg-zinc-800 min-h-[150px] rounded-lg block drop-shadow-lg p-9 pb-2 flex flex-col w-[650px]">
 			<div className="flow-content-container text-center">
 				<h2 className="text-2xl font-bold mb-5">{placementContent?.title}</h2>
 				<p className="mb-5">{placementContent?.description}</p>

@@ -10,7 +10,7 @@ export default function Home() {
     */}
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center p-24">
+		<main className="flex min-h-screen flex-col items-center justify-center p-24 bg-zinc-950 text-white">
 			<h1 className="fixed top-20">Music Mood</h1>
             <div className="flex flex-col items-center justify-center">
                 <FlowContainer />

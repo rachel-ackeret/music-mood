@@ -18,6 +18,7 @@ export const retrieveSpotifyToken = async () => {
      * For more information, read
      * https://developer.spotify.com/web-api/authorization-guide/#client_credentials_flow
     */
+
     const clientId = CLIENT_ID; // Your client id
     const clientSecret = CLIENT_SECRET; // Your secret
 
