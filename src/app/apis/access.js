@@ -19,8 +19,8 @@ export const retrieveSpotifyToken = async () => {
      * https://developer.spotify.com/web-api/authorization-guide/#client_credentials_flow
     */
 
-    const clientId = CLIENT_ID; // Your client id
-    const clientSecret = CLIENT_SECRET; // Your secret
+    const clientId = process.env.CLIENT_ID; // Your client id
+    const clientSecret = process.env.CLIENT_SECRET; // Your secret
 
     // Base64 encode the client ID and client secret
     const base64Credentials = btoa(`${clientId}:${clientSecret}`);
