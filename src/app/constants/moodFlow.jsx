@@ -6,6 +6,7 @@ export const moodFlows = {
     ENERGY: "energy",
     MOOD: "mood",
     REVIEW: "review", 
+    RESULTS: "results", 
 };
 
 const moodFlow = Immutable.Map({
@@ -19,18 +20,23 @@ const moodFlow = Immutable.Map({
         type: "Energy",
         title: "Pick an Energy",
         description: "Choose an energy level to match to your tracks",
-        buttonText: "Next"
+        buttonText: "Next",
     },
     [moodFlows.MOOD]: {
         type: "Mood",
         title: "Pick a Mood",
         description: "Choose a mood to match to your tracks",
-        buttonText: "Next"
+        buttonText: "Next",
     },
     [moodFlows.REVIEW]: {
         title: null,
         description: null,
-        buttonText: "Load Results"
+        buttonText: "Load Results",
+    },
+    [moodFlows.RESULTS]: {
+        title: "Results",
+        description: null,
+        buttonText: "Copy Track URL",
     },
     // { Artist: {
     //     title: "Pick a artist",

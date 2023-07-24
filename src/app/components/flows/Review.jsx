@@ -2,14 +2,16 @@ import React from 'react'
 import moodFlow, { moodFlowPhases } from '../../constants/moodFlow'
 
 const Review = ({ savedUserChoices }) => {
+  console.log('savedUserChoices', savedUserChoices)
   return (
     <>
       <h2 className="text-2xl font-bold mb-5">Review your choices</h2>
-      {moodFlowPhases.map((flowPhase) => {
+      {Object.keys(savedUserChoices).map((choice) => {
         return (
-          <p key={flowPhase}>
-            {moodFlow.get(flowPhase).type + ": " + savedUserChoices[flowPhase]}
-          </p>
+          <div className="flex justify-between max-w-[500px] mx-auto mb-2" key={choice}>
+            <p>{moodFlow.get(choice).type + ": "}</p>
+            <p>{savedUserChoices[choice]}</p>
+          </div>
         );
       })}
     </>

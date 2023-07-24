@@ -1,20 +1,15 @@
 import FlowContainer from "./components/FlowContainer";
 
 export default function Home() {
-    {/* Rounded in and out modals that take you through:
-    1. picking genre
-    2. Choosing Energy
-    3. Choosing Mood
-    4. Loading screen
-    5. New Results page: Different metric about the song in a slick control panel
-    */}
-
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-center p-24 bg-zinc-950 text-white">
-			<h1 className="fixed top-20">Music Mood</h1>
+			<h1 className="fixed top-20 font-code">Music Mood</h1>
             <div className="flex flex-col items-center justify-center">
                 <FlowContainer />
             </div>
+            <p className="fixed bottom-0 font-code right-10 text-right">
+				[ For Fun Project by <a href="https://github.com/rachel-ackeret">Rachel Ackeret ]</a>
+			</p>
 		</main>
 	);
 }
