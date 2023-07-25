@@ -18,7 +18,8 @@ export const retrieveSpotifyToken = async () => {
      * For more information, read
      * https://developer.spotify.com/web-api/authorization-guide/#client_credentials_flow
     */
-
+    console.log('process', process)
+    console.log('process.env', process.env)
     const clientId = process.env.REACT_APP_CLIENT_ID; // Your client id
     const clientSecret = process.env.REACT_APP_CLIENT_SECRET; // Your secret
 
