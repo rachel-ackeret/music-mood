@@ -16,7 +16,7 @@ const getApiTrackRecommendations = async (savedUserChoices) => {
         }
     }).join('&');
 
-    const url = `${baseUrl}/recommendations?limit=3&${criteria}`;
+    const url = `${baseUrl}/recommendations?limit=7&${criteria}`;
 
     return makeSpotifyApiRequest(url).then(data => {
         return data;

@@ -2,18 +2,26 @@ import React from 'react';
 import Immutable from 'immutable';
 
 export const moodFlows = {
+    WELCOME: "welcome",
     GENRE: "genre",
     ENERGY: "energy",
     MOOD: "mood",
-    REVIEW: "review", 
-    RESULTS: "results", 
+    REVIEW: "review",
 };
 
 const moodFlow = Immutable.Map({
+    [moodFlows.WELCOME]: {
+        type: "Welcome",
+        title: "Welcome to Music Mood",
+        description: (<>Let us know how you're feeling today, and we'll match a couple songs that align with your mood and energy.
+                        <br /><br /> We hope this is a soothing and enjoyable experience.
+                        <br /><br /> <i>Please note this is a work in progress and very simplistic for now, but new features will be added in time.</i></>),
+        buttonText: "Next",
+    },
     [moodFlows.GENRE]: {
         type: "Genre",
         title: "Pick a Genre",
-        description: "Choose genres that you prefer to listen to, or leave this section blank and let us Spotify choose for you",
+        description: "Choose genres that you prefer to listen to, or leave this section blank and let Spotify choose for you",
         buttonText: "Next",
     },
     [moodFlows.ENERGY]: {
@@ -32,11 +40,6 @@ const moodFlow = Immutable.Map({
         title: null,
         description: null,
         buttonText: "Load Results",
-    },
-    [moodFlows.RESULTS]: {
-        title: "Results",
-        description: null,
-        buttonText: "Copy Track URL",
     },
     // { Artist: {
     //     title: "Pick a artist",

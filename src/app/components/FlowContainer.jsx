@@ -16,7 +16,7 @@ const FlowContainer = ({ genreRecommendations }) => {
 	const currentPlacement = moodFlowPhases.get(queuePosition);
 
 	const onNext = () => {
-		if (queuePosition < moodFlowPhases.size - 2) {
+		if (queuePosition < moodFlowPhases.size - 1) {
 			setQueuePosition(queuePosition + 1);
 		} else if (currentPlacement === moodFlows.REVIEW) {
 			loadResults(savedUserChoices);
@@ -65,7 +65,7 @@ const FlowContainer = ({ genreRecommendations }) => {
 						Back
 					</button>
 				}
-				{(queuePosition < moodFlowPhases.size - 2) ? (
+				{(queuePosition < moodFlowPhases.size - 1) ? (
 					<button 
 						className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 ml-auto"
 						onClick={onNext}
