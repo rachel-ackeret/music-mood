@@ -4,9 +4,9 @@ import ResultTracksContainer from "src/app/components/ResultTracksContainer"
 import { getApiTrackRecommendations } from "../api/spotify";
 
 const Results = async (context) => {
-  const savedUserChoices = Object.keys(context?.searchParams)[0];
-  const parsedUserChoices = JSON.parse(savedUserChoices);
-	const recommendedTracks = await getApiTrackRecommendations(parsedUserChoices);
+  const savedUserChoices = context && Object.keys(context.searchParams)[0];
+  const parsedUserChoices = savedUserChoices && JSON.parse(savedUserChoices);
+	const recommendedTracks = parsedUserChoices && await getApiTrackRecommendations(parsedUserChoices);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-zinc-950 text-white">
