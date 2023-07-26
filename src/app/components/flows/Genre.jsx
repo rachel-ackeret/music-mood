@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select';
 
-import { getGenreRecommendations } from "../../apis/spotify";
 
 const getGenreDropdownOptions = (genres) => {
 	return genres.map(genre => {
-		return { value: genre, label: genre, key: genre };
+		return { value: genre, label: genre, key: genre, id: genre };
 	});
 }
 
-export default function Genre({ handleGenreSelection }) {
+export default function Genre({ handleGenreSelection, genreRecommendations }) {
 	const [genres, setGenres] = useState([]);
 
 	useEffect(() => {
 		(async () => {
 			try {
-				const data = await getGenreRecommendations();
-				setGenres(data.genres);
+				setGenres(genreRecommendations.genres);
 			  } catch (error) {
 				console.error(error);
 			  }
 		})();
-	}, []);
+	}, [genreRecommendations]);
 
 	return (
 		<Select

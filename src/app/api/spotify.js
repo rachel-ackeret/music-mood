@@ -1,12 +1,14 @@
-const baseUrl = "https://api.spotify.com/v1"
+import 'server-only';
 import { getSpotifyAccessToken } from './access';
 
-const getTrackRecommendations = async (savedUserChoices) => {
+const baseUrl = "https://api.spotify.com/v1"
+
+const getApiTrackRecommendations = async (savedUserChoices) => {
     const seedCriteria = {
         seed_genres: savedUserChoices.genre,
         target_energy: savedUserChoices.energy,
         target_danceability: savedUserChoices.mood,
-    };
+    }
 
     const criteria = Object.keys(seedCriteria).map(key => {
         if (seedCriteria[key]) {
@@ -24,7 +26,7 @@ const getTrackRecommendations = async (savedUserChoices) => {
     });
 };
 
-const getGenreRecommendations = async () => {
+const getApiGenreRecommendations = async () => {
     const url = `${baseUrl}/recommendations/available-genre-seeds`;
 
     return makeSpotifyApiRequest(url).then(data => {
@@ -37,15 +39,16 @@ const getGenreRecommendations = async () => {
 
 const makeSpotifyApiRequest = async (url, method = 'GET', body = null) => {
     const accessToken = await getSpotifyAccessToken();
-  
+
     // Continue with your API request using the accessToken
     return fetch(url, {
+        cache: "reload",
         method: method,
         headers: {
             'Authorization': `Bearer ${accessToken}`,
             'Content-Type': 'application/json'
         },
-        body: body ? JSON.stringify(body) : null
+        body: body ? JSON.stringify(body) : null,
     }).then(response => {
         if (response.ok) {
             return response.json();
@@ -58,6 +61,6 @@ const makeSpotifyApiRequest = async (url, method = 'GET', body = null) => {
 };
 
 export {
-    getGenreRecommendations,
-    getTrackRecommendations
+    getApiGenreRecommendations,
+    getApiTrackRecommendations
 }

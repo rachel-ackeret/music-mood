@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+'use client';
 
+import React, { useState } from 'react'
 import { BiRightArrowCircle, BiLeftArrowCircle } from 'react-icons/bi';
 
-const Results = ({ recommendedTracks }) => {
+const ResultTracksContainer = ({ recommendedTracks }) => {
 	const [currentTrack, setCurrentTrack] = useState(0);
+
     const trackId = new URL(recommendedTracks[currentTrack].external_urls.spotify).pathname
     const totalTracks = recommendedTracks.length;
-    console.log('totalTracks', totalTracks)
 
     return (
-        <div className="flex items-center justify-between">
-            {currentTrack !== 0 &&
+        <>
+            {currentTrack !== 0 && (
                 <BiLeftArrowCircle size={42} className="mr-3 cursor-pointer" onClick={() => setCurrentTrack(currentTrack - 1)} />
-            }
+            )}
             <iframe
                 title="Spotify Web Player"
                 className="br-12"
@@ -26,8 +27,8 @@ const Results = ({ recommendedTracks }) => {
             {currentTrack !== (totalTracks - 1) &&
                 <BiRightArrowCircle size={42} className="ml-3 cursor-pointer" onClick={() => setCurrentTrack(currentTrack + 1)}
             />}
-        </div>
-    )
+        </>
+    );
 }
 
-export default Results
+export default ResultTracksContainer
