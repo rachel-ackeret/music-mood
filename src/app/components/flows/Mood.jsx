@@ -6,7 +6,7 @@ const Mood = ({ handleMoodSelection }) => {
     <>
       <Slider
         aria-label="Mood Today"
-        defaultValue={50}
+        defaultValue={.5}
         color="secondary"
         onChange={(e) => handleMoodSelection(e.target.value)}
         max={1}

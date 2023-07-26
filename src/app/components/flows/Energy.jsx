@@ -5,7 +5,7 @@ const Energy = ({ handleEnergySelection }) => {
   return (
     <Slider
       aria-label="Energy Today"
-      defaultValue={50}
+      defaultValue={.5}
       color="secondary"
       onChange={(e) => handleEnergySelection(e.target.value)}
 			max={1}

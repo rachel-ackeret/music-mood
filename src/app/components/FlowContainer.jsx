@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'
+import { encodeQueryParams } from "../utils/urls";
 
 import moodFlow, { moodFlows, moodFlowPhases } from "../constants/moodFlow"
 
@@ -48,8 +49,6 @@ const FlowContainer = ({ genreRecommendations }) => {
 		content = <Review savedUserChoices={savedUserChoices} />;
 	}
 
-	const stringifyChoice = JSON.stringify(savedUserChoices)
-
 	return (
 		<div className="bg-zinc-800 min-h-[150px] rounded-lg block drop-shadow-lg p-9 pb-2 flex flex-col w-[650px]">
 			<div className="flow-content-container text-center">
@@ -74,11 +73,14 @@ const FlowContainer = ({ genreRecommendations }) => {
 						{placementContent.buttonText}
 					</button>
 				) : (
-					<Link href={{
-						pathname: "/your-results/",
-						query: stringifyChoice
-					}}>
-						Go to New Page
+					<Link 
+						href={{
+							pathname: "/your-results/",
+							query: encodeQueryParams(savedUserChoices)
+						}} 
+						className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 ml-auto flex justify-center items-center"
+					>
+						Get Your Results
 					</Link>
 				)
 				}
