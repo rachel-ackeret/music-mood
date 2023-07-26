@@ -1,17 +1,16 @@
 'use client';
 import React, { useState } from "react";
+import Link from 'next/link';
 import { useRouter } from 'next/navigation'
 
-import { getTrackRecommendations } from "../apis/spotify";
 import moodFlow, { moodFlows, moodFlowPhases } from "../constants/moodFlow"
 
 import { Genre, Mood, Energy, Review, Results } from "./flows";
 
-const FlowContainer = () => {
+const FlowContainer = ({ genreRecommendations }) => {
 	const router = useRouter()
 	const [queuePosition, setQueuePosition] = useState(0);
 	const [savedUserChoices, setSavedUserChoices] = useState({});
-	const [recommendedTracks, setRecommendedTracks] = useState({});
 
 	const currentPlacement = moodFlowPhases.get(queuePosition);
 
@@ -33,17 +32,11 @@ const FlowContainer = () => {
 		setSavedUserChoices({ ...savedUserChoices, [currentPlacement]: selectedOptions });
 	};
 
-	const loadResults = async (savedUserChoices) => {
-		const recommendedTracks = await getTrackRecommendations(savedUserChoices);
-		recommendedTracks && setRecommendedTracks(recommendedTracks.tracks);
-		setQueuePosition(queuePosition + 1);
-	};
-
 	const placementContent = moodFlow.get(currentPlacement);
 
 	let content;
 	if (currentPlacement === moodFlows.GENRE) {
-		content = <Genre handleGenreSelection={handleChoiceSelection} />;
+		content = <Genre handleGenreSelection={handleChoiceSelection} genreRecommendations={genreRecommendations} />;
 	}
 	if (currentPlacement === moodFlows.ENERGY) {
 		content = <Energy handleEnergySelection={handleChoiceSelection} />;
@@ -54,9 +47,8 @@ const FlowContainer = () => {
 	if (currentPlacement === moodFlows.REVIEW) {
 		content = <Review savedUserChoices={savedUserChoices} />;
 	}
-	if (currentPlacement === moodFlows.RESULTS) {
-		content = <Results recommendedTracks={recommendedTracks} />;
-	}
+
+	const stringifyChoice = JSON.stringify(savedUserChoices)
 
 	return (
 		currentPlacement === moodFlows.RESULTS ?
@@ -76,12 +68,22 @@ const FlowContainer = () => {
 							Back
 						</button>
 					}
-					<button 
-						className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 ml-auto"
-						onClick={onNext}
-					>
-						{placementContent.buttonText}
-					</button>
+					{(queuePosition < moodFlowPhases.size - 2) ? (
+						<button 
+							className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 ml-auto"
+							onClick={onNext}
+						>
+							{placementContent.buttonText}
+						</button>
+					) : (
+						<Link href={{
+							pathname: "/your-results/",
+							query: stringifyChoice
+						}}>
+							Go to New Page
+						</Link>
+					)
+					}
 				</div>
 			</div>
 	);
