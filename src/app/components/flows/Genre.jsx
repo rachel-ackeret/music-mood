@@ -4,7 +4,7 @@ import Select from 'react-select';
 
 const getGenreDropdownOptions = (genres) => {
 	return genres.map(genre => {
-		return { value: genre, label: genre, key: genre };
+		return { value: genre, label: genre, key: genre, id: genre };
 	});
 }
 
@@ -14,13 +14,12 @@ export default function Genre({ handleGenreSelection, genreRecommendations }) {
 	useEffect(() => {
 		(async () => {
 			try {
-				const data = genreRecommendations;
-				setGenres(data.genres);
+				setGenres(genreRecommendations.genres);
 			  } catch (error) {
 				console.error(error);
 			  }
 		})();
-	}, []);
+	}, [genreRecommendations]);
 
 	return (
 		<Select

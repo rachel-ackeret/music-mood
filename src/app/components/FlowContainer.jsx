@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 import moodFlow, { moodFlows, moodFlowPhases } from "../constants/moodFlow"
 
-import { Genre, Mood, Energy, Review, Results } from "./flows";
+import { Genre, Mood, Energy, Review } from "./flows";
 
 const FlowContainer = ({ genreRecommendations }) => {
 	const router = useRouter()
