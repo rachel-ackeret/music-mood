@@ -6,8 +6,11 @@ const baseUrl = "https://api.spotify.com/v1"
 const getApiTrackRecommendations = async (savedUserChoices) => {
     const seedCriteria = {
         seed_genres: savedUserChoices.genre,
-        target_energy: savedUserChoices.energy,
-        target_danceability: savedUserChoices.mood,
+        target_energy: savedUserChoices.energy || 0.5,
+        target_danceability: savedUserChoices.mood || 0.5,
+        // These are experimental, may not keep.
+        target_acousticness: savedUserChoices.mood && (1 - savedUserChoices.mood).toFixed(2),
+        target_tempo: savedUserChoices.energy && (savedUserChoices.energy * 170).toFixed(1),
     }
 
     const criteria = Object.keys(seedCriteria).map(key => {
@@ -17,6 +20,7 @@ const getApiTrackRecommendations = async (savedUserChoices) => {
     }).join('&');
 
     const url = `${baseUrl}/recommendations?limit=7&${criteria}`;
+    console.log('url', url)
 
     return makeSpotifyApiRequest(url).then(data => {
         return data;

@@ -2,6 +2,9 @@ import React from 'react'
 import Slider from '@mui/material/Slider';
 
 const Energy = ({ handleEnergySelection }) => {
+
+  // TO DO: if already chosen, add this as default 
+  // TO DO: add more visuals to help understand the level
   return (
     <Slider
       aria-label="Energy Today"

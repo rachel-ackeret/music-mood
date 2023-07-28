@@ -2,6 +2,11 @@ import NodeCache from 'node-cache';
 
 const cache = new NodeCache();
 
+
+/** 
+ * SPOTIFY ACCESS RETRIEVAL
+*/
+
 export const getSpotifyAccessToken = async () => {
     let accessToken = await cache.get("spotify_access_token");
     if (accessToken) {
