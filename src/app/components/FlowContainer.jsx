@@ -50,13 +50,13 @@ const FlowContainer = ({ genreRecommendations }) => {
 	}
 
 	return (
-		<div className="bg-zinc-800 min-h-[150px] rounded-lg block drop-shadow-lg p-9 pb-2 flex flex-col w-[650px]">
+		<div className="bg-zinc-800 min-h-[150px] rounded-lg block drop-shadow-lg p-9 pb-2 flex flex-col max-w-[650px] md:w-[650px] w-full">
 			<div className="flow-content-container text-center">
 				<h2 className="text-2xl font-bold mb-5">{placementContent?.title}</h2>
 				<p className="mb-5">{placementContent?.description}</p>
 				{content}
 			</div>
-			<div className="flex justify-between mt-5">
+			<div className="xs:flex justify-between mt-5 text-center">
 				{queuePosition > 0 && 
 					<button 
 						className="border-solid rounded-xl border-2 border-yellow-500 my-3 h-[36px] w-[150px] hover:bg-yellow-500"

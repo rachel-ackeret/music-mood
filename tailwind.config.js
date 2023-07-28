@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -12,6 +13,14 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+    },
+    screens: {
+      '2xl': '1535px',
+      'xl': '1279px',
+      'lg': '1023px',
+      'md': '767px',
+      'sm': '639px',
+      'xs': '475px',
     },
   },
   plugins: [],
