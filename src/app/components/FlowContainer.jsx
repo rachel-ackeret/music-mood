@@ -56,7 +56,7 @@ const FlowContainer = ({ genreRecommendations }) => {
 				<p className="mb-5">{placementContent?.description}</p>
 				{content}
 			</div>
-			<div className="xs:flex justify-between mt-5 text-center">
+			<div className="flex flex-col xs:flex-row items-center justify-between mt-5 text-center">
 				{queuePosition > 0 && 
 					<button 
 						className="border-solid rounded-xl border-2 border-yellow-500 my-3 h-[36px] w-[150px] hover:bg-yellow-500"
@@ -67,7 +67,7 @@ const FlowContainer = ({ genreRecommendations }) => {
 				}
 				{(queuePosition < moodFlowPhases.size - 1) ? (
 					<button 
-						className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 ml-auto"
+						className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 xs:ml-auto"
 						onClick={onNext}
 					>
 						{placementContent.buttonText}
@@ -78,7 +78,7 @@ const FlowContainer = ({ genreRecommendations }) => {
 							pathname: "/your-results/",
 							query: encodeQueryParams(savedUserChoices)
 						}} 
-						className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 ml-auto flex justify-center items-center"
+						className="border-solid rounded-xl border-2 border-green-500 my-3 h-[36px] w-[150px] hover:bg-green-500 mr-0 xs:ml-auto flex justify-center items-center"
 					>
 						Get Your Results
 					</Link>
