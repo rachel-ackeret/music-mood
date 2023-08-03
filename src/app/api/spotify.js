@@ -10,7 +10,7 @@ const getApiTrackRecommendations = async (savedUserChoices) => {
         target_danceability: savedUserChoices.mood || 0.5,
         // These are experimental, may not keep.
         target_acousticness: savedUserChoices.mood && (1 - savedUserChoices.mood).toFixed(2),
-        target_tempo: savedUserChoices.energy && (savedUserChoices.energy * 170).toFixed(1),
+        // target_tempo: savedUserChoices.energy && (savedUserChoices.energy * 170).toFixed(1),
     }
 
     const criteria = Object.keys(seedCriteria).map(key => {
