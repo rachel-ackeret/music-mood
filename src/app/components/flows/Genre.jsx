@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select';
 
+// TODO: either block moving to next step if no genre is selected or allow random selection of genre
 
 const getGenreDropdownOptions = (genres) => {
 	return genres.map(genre => {
