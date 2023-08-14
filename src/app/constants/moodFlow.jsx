@@ -21,7 +21,7 @@ const moodFlow = Immutable.Map({
     [moodFlows.GENRE]: {
         type: "Genre",
         title: "Pick a Genre",
-        description: "Choose genres that you prefer to listen to, or leave this section blank and let Spotify choose for you",
+        description: "Choose genres that you prefer to listen to",
         buttonText: "Next",
     },
     [moodFlows.ENERGY]: {
