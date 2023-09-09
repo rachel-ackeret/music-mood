@@ -9,7 +9,7 @@ const Review = ({ savedUserChoices }) => {
         return (
           <div className="flex justify-between max-w-[500px] mx-auto mb-2" key={choice}>
             <p>{moodFlow.get(choice).type + ": "}</p>
-            <p>{savedUserChoices[choice]}</p>
+            <p>{(savedUserChoices[choice] * 100) + "%"}</p>
           </div>
         );
       })}
