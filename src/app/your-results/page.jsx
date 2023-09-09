@@ -12,7 +12,7 @@ const Results = async (context) => {
       <div className="flex flex-col items-center justify-center">
         {recommendedTracks && <ResultTracksContainer recommendedTracks={recommendedTracks.tracks} />}
         <p className="fixed bottom-0 font-code right-10 text-right">
-          [ For Fun Project by <a href="https://github.com/rachel-ackeret">Rachel Ackeret ]</a>
+          [ Project by <a href="https://github.com/rachel-ackeret">Rachel Ackeret ]</a>
         </p>
       </div>
     </main>

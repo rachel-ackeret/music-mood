@@ -13,7 +13,7 @@ export default function Home() {
                 <FlowContainer genreRecommendations={genreRecommendations} getPosition/>
             </div>
             <p className="fixed bottom-0 md:mb-1 md:right-5 font-code md:right-10 md:text-right md:w-auto text-center w-full">
-				[ For Fun Project by <a href="https://github.com/rachel-ackeret">Rachel Ackeret ]</a>
+				[ Project by <a href="https://github.com/rachel-ackeret">Rachel Ackeret ]</a>
 			</p>
 		</main>
 	);
