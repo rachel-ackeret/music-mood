@@ -14,7 +14,6 @@ const moodFlow = Immutable.Map({
         type: "Welcome",
         title: "Welcome to Music Mood",
         description: (<>Let us know how you&apos;re feeling today, and we&apos;ll match a couple songs that align with your mood and energy.
-                        <br /><br /> We hope this is a soothing and enjoyable experience.
                     </>),
         buttonText: "Next",
     },
